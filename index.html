@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layouts & RWD Assignment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 
+        The main container for our page. 
+        This will be our primary CSS Grid container on larger screens.
+    -->
+    <div class="page-container">
+        
+        <header class="page-header">
+            <h1 class="logo">Layout PRO</h1>
+            <!-- The nav is inside the header but can be styled independently -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home Cleaning</a></li>
+                    <li><a href="#">Carpentry</a></li>
+                    <li><a href="#">Web Dev</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <h2>Our Services</h2>
+            <p>We use modern techniques to structure and beautify your world, from your home to your web presence.</p>
+            
+            <!-- 
+                This 'services' section will be our Flexbox container. 
+                It's a perfect use case for distributing a series of items (cards).
+            -->
+            <section class="services-grid">
+                <article class="service-card">
+                    <h3>Home Cleaning & Fumigation</h3>
+                    <p>Flexible and aligned content makes for a clean presentation, just like our cleaning services.</p>
+                    <a href="#" class="card-button">Learn More</a>
+                </article>
+                <article class="service-card">
+                    <h3>Carpentry & Joinery</h3>
+                    <p>We build with precision. Our layouts are structured and strong, with no wasted space.</p>
+                    <a href="#" class="card-button">Learn More</a>
+                </article>
+                <article class="service-card">
+                    <h3>Web/Web3/App Development</h3>
+                    <p>Responsive, dynamic, and modern. We create digital experiences that adapt to any device.</p>
+                    <a href="#" class="card-button">Learn More</a>
+                </article>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Latest News</h3>
+            <div class="sidebar-widget">
+                <h4>Grid is a Game Changer</h4>
+                <p>Discover how 2D layouts are revolutionizing web design...</p>
+            </div>
+            <div class="sidebar-widget">
+                <h4>Flexbox for Components</h4>
+                <p>Why Flexbox is the perfect tool for UI component alignment...</p>
+            </div>
+        </aside>
+
+        <footer class="page-footer">
+            <p>&copy; 2024 Layout PRO. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
