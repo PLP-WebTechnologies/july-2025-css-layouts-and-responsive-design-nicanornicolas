@@ -1,0 +1,208 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #4A90E2;
+    --background-color: #F4F7FC;
+    --text-color: #333;
+    --card-bg: #FFFFFF;
+    --border-color: #E0E0E0;
+    --header-footer-bg: #1A253C;
+}
+
+/* A common reset for better consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.page-container {
+    width: 100%;
+}
+
+/* --- Mobile First Styles (Default) --- */
+/* On mobile, all sections are stacked vertically by default */
+
+.page-header {
+    background-color: var(--header-footer-bg);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 0.5rem;
+}
+
+.main-nav ul {
+    list-style-type: none;
+}
+
+.main-nav ul li {
+    padding: 0.5rem 0;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+.main-content, .sidebar, .page-footer {
+    padding: 1.5rem;
+}
+
+.main-content h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* --- FLEXBOX IN ACTION (Service Cards) --- */
+/* On mobile, we use flexbox to stack cards neatly in a column. */
+.services-grid {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    gap: 1.5rem; /* Space between cards */
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* We use flexbox here too, for internal alignment! */
+    display: flex;
+    flex-direction: column; 
+}
+
+.service-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* This pushes the button to the bottom of the card, showing the power of flexbox */
+.service-card .card-button {
+    margin-top: auto; /* Magic alignment! */
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    align-self: flex-start; /* Button doesn't stretch full width */
+    transition: background-color 0.3s ease;
+}
+
+.service-card .card-button:hover {
+    background-color: var(--secondary-color);
+}
+
+
+.sidebar h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-widget {
+    margin-bottom: 1.5rem;
+}
+
+.page-footer {
+    background-color: var(--header-footer-bg);
+    color: white;
+    text-align: center;
+}
+
+
+/* --- Tablet Viewport --- */
+@media (min-width: 768px) {
+    
+    /* --- CSS GRID IN ACTION (Main Page Layout) --- */
+    /* On tablets and larger, we switch to a grid layout. */
+    .page-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr; /* 3 parts for main content, 1 for sidebar */
+        grid-template-rows: auto auto 1fr auto; /* Header, Nav, Content, Footer */
+        grid-template-areas: 
+            "header header"
+            "main   sidebar"
+            "footer footer";
+        max-width: 1200px;
+        margin: 0 auto; /* Center the layout */
+        min-height: 100vh;
+    }
+    
+    /* Assigning each section to its named grid area */
+    .page-header { grid-area: header; }
+    .main-content { grid-area: main; }
+    .sidebar { grid-area: sidebar; }
+    .page-footer { grid-area: footer; }
+
+    /* --- FLEXBOX IN ACTION (Header & Nav) --- */
+    /* We now use flexbox to align header/nav items horizontally */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 1rem 2rem;
+    }
+
+    .main-nav ul {
+        display: flex;
+        gap: 1.5rem; /* Space between nav items */
+    }
+
+    .main-nav ul li {
+        padding: 0;
+    }
+
+    /* Adjusting the flexbox for service cards to be in a row */
+    .services-grid {
+        flex-direction: row; /* Align horizontally */
+        flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    }
+
+    .service-card {
+        /* Each card takes up roughly half the space, minus the gap */
+        flex-basis: calc(50% - 0.75rem);
+    }
+}
+
+
+/* --- Desktop Viewport --- */
+@media (min-width: 1024px) {
+
+    /* The grid layout is already set from the tablet view. We just refine it. */
+
+    body {
+        font-size: 1.1rem; /* Slightly larger base font for better readability */
+    }
+
+    .main-content, .sidebar, .page-footer {
+        padding: 2rem;
+    }
+
+    .page-header {
+        padding: 1.5rem 2rem;
+    }
+    
+    /* On desktop, we can fit all three cards in a single row */
+    .service-card {
+        /* Each card takes up roughly a third of the space, minus the gap */
+        flex-basis: calc(33.333% - 1rem);
+    }
+}
